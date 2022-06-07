@@ -199,12 +199,34 @@ function task_8(arr) {
 // Result: boolean
 
 function task_9(arr) {
-  return arr.every(item => !!item?.done)
+  return arr.every(item => !!item?.done);
 }
 
+// 10)  need to replace each plaintext letter with a different one in a fixed number of places (can be negative too) down the English alphabet. 
+// For example 'D' will be transformed into 'A', 'E' will be transformed into 'B', and so on if the key will be queal 3. 
+// As a result, we should get a string value.
+// Arguments: 'Lorem ipsum dolor sit amet.', 3
+// Result: string
 
 
+const alpha = Array.from(Array(26)).map((e, i) => i + 65);
+const alphabet = alpha.map(x => String.fromCharCode(x));
 
+function task_10(str, key) {
+    return str
+        .split('')
+        .map(ch => {
+            const index = alphabet.findIndex(itm => itm === ch.toUpperCase());
+            if (index === -1) {
+                return ch;
+            }
+            let replacedIndex = index;
+            if (index - key > 0 && index - key <= alphabet?.length) {
+                replacedIndex = index - key;
+            }
+            return alphabet[replacedIndex];
+        })
+        .join('');
+}
 
-
-export default {task_1, task_2, task_3, task_4, task_5, task_6, task_7, task_8, task_9};
+export default {task_1, task_2, task_3, task_4, task_5, task_6, task_7, task_8, task_9, task_10};
