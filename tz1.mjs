@@ -140,17 +140,39 @@ function task_5(str, el) {
 // Result: integer
 
 function task_6(str, el) {
+  const strInLowerCase = str.toLowerCase();
   let count = 0;
   for (let index = 0; index < str.length; index++) {
-      if (str[index] === el) {
+      if (strInLowerCase[index] === el) {
           count++;
       }
   }
   return count;
 }
 
+// 7) need to do a transformation of array with structure [ {currency: (string), value: (any) } ], 
+// need to do sum of all valid values grouped by currency property and return an array in format [ 'USD:12.00', 'EUR:1.02', UAH:3.00']
+// Arguments: [ {currency: (string), value: (any) }, ….. ,{currency: (string), value: (any) } ]
+// Result: array with strings [ 'USD:12.00', 'EUR:1.02', UAH:3.00']
+
+function task_7(arr) {
+  const obj = {};
+  arr.forEach(item => {
+      const curr = item.currency.toUpperCase();
+      const numberValue = Number(item?.value);
+      const val = !isNaN(numberValue) ? numberValue : 0;
+      console.log(val);
+      obj[curr] = (obj[curr] || 0) + val;
+  });
+  const entries = Object.entries(obj);
+  return entries
+      .filter(item => !!item[1])
+      .map(item => `${item[0]}:${item[1]?.toFixed(2)}`);
+}
 
 
 
 
-export default {task_1, task_2, task_3, task_4, task_5, task_6};
+
+
+export default {task_1, task_2, task_3, task_4, task_5, task_6, task_7};
