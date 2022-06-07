@@ -119,6 +119,23 @@ function task_4(arr) {
   return even - odd;
 }
 
+// 5) we should return all indexes from the string with random lengths where the needed character exists. 
+// as the response, we should return an array with integer values
+// Arguments: 'asdasdasdasd' 'a' (two strings)
+// Result: array with integer
+
+function task_5(str, el) {
+  const indexes = [];
+  for (let index = 0; index < str.length; index++) {
+      if (str[index] === el) {
+          indexes.push(index);
+      }
+  }
+  return indexes;
+}
 
 
-export default {task_1, task_2, task_3};
+
+
+
+export default {task_1, task_2, task_3, task_4, task_5};
