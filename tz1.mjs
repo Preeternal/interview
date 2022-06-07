@@ -73,9 +73,32 @@ function task_2(a, b) {
   return A.every((item, index) => equals(A[index], B[index]));
 }
 
+// 3) need to check the array with structure [ {id: (int), value: (any) } ]. 
+// we should group it by id property and count the same value property types. 
+// equal objects should be counted only 1 time. as response we should return array with the structure [ {id: 1, number: 1, string: 10 } ]
+// Arguments: [ {id: (number), value: (any) } ]
+// Result: array
 
+// Example:  
+// Input
+//     {id: 1, value: 2}, 
+//     {id: 1, value: 'asd'},
+//     {id: 1, value: 'asd'}
+// Output
+//     [{id: 1, number: 1, string: 1}] 
 
-
-
+function task_3(arr) {
+  const obj = {}
+  arr?.forEach(
+    item => {
+      const type = typeof item.value;
+      obj[item.id] = {
+        ...obj[item.id],
+        id: item.id,
+        [type]: (obj[item.id]?.[type] || 0) + 1,
+      };
+  });
+  return Object.values(obj);
+}
 
 export default {task_1, task_2};
