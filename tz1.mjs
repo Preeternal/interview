@@ -192,8 +192,19 @@ function task_8(arr) {
   return str;
 }
 
+// 9) need to do a transformation of the array with structure [ {id: (int), done: (bool) } ]. 
+// We need to check that all objects marked as done (done == true). 
+// we need to get a boolean type as a result
+// Arguments: [ {id: (int), done: (bool) }, {id: (int), done: (bool) } ]
+// Result: boolean
+
+function task_9(arr) {
+  return arr.every(item => !!item?.done)
+}
 
 
 
 
-export default {task_1, task_2, task_3, task_4, task_5, task_6, task_7, task_8};
+
+
+export default {task_1, task_2, task_3, task_4, task_5, task_6, task_7, task_8, task_9};
