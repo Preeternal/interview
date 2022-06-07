@@ -170,9 +170,30 @@ function task_7(arr) {
       .map(item => `${item[0]}:${item[1]?.toFixed(2)}`);
 }
 
+// 8) need to do a transformation of the array with random elements and types. 
+// need to take only alphanumeric characters and spaces and do concatenation of elements. 
+// as the response, we should return the string value
+// Arguments: [ 1, ‘asd’, ‘ff’,  ' ', null, false]
+// Result: string
+
+function task_8(arr) {
+  let str = '';
+  arr.forEach(item => {
+      if (typeof item === 'string' || typeof item === 'number') {
+          str =
+              str +
+              item
+                  .toString()
+                  .replace(/[^\w\s]/gi, '')
+                  .split('_')
+                  .join('');
+      }
+  });
+  return str;
+}
 
 
 
 
 
-export default {task_1, task_2, task_3, task_4, task_5, task_6, task_7};
+export default {task_1, task_2, task_3, task_4, task_5, task_6, task_7, task_8};
