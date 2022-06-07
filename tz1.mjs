@@ -134,8 +134,23 @@ function task_5(str, el) {
   return indexes;
 }
 
+// 6) we should return the max count of characters repeating from the string with random length with case insensitive search. 
+// as the response, we should return the integer value
+// Arguments: 'asdasdasdasd' 'a' (two random strings)
+// Result: integer
+
+function task_6(str, el) {
+  let count = 0;
+  for (let index = 0; index < str.length; index++) {
+      if (str[index] === el) {
+          count++;
+      }
+  }
+  return count;
+}
 
 
 
 
-export default {task_1, task_2, task_3, task_4, task_5};
+
+export default {task_1, task_2, task_3, task_4, task_5, task_6};
