@@ -17,8 +17,8 @@
 
 function task_1(arr) {
   const result = [];
-  for(let i = arr.length - 1; i >= 0; i--) {
-    result.push(arr[i]);
+  for (let i = arr.length - 1; i >= 0; i--) {
+      result.push(arr[i]);
   }
   return result;
 }
@@ -89,7 +89,7 @@ function task_2(a, b) {
 
 function task_3(arr) {
   const obj = {}
-  arr?.forEach(
+  arr.forEach(
     item => {
       const type = typeof item.value;
       obj[item.id] = {
@@ -101,4 +101,24 @@ function task_3(arr) {
   return Object.values(obj);
 }
 
-export default {task_1, task_2};
+// 4) need to count the difference (even - odd) in the sum of all values even and odd indexes from the array with integers. 
+// As a response, we should return an integer value.
+// Arguments: [ 1, 44, 2234, 0, 4, -1 ] positive and negative numbers
+// Result: integer
+
+function task_4(arr) {
+  let even = 0;
+  let odd = 0;
+  arr.forEach((item, index) => {
+      if (index % 2 === 0) {
+          even = even + item;
+      } else {
+          odd = odd + item;
+      }
+  });
+  return even - odd;
+}
+
+
+
+export default {task_1, task_2, task_3};
